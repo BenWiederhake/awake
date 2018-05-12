@@ -2,7 +2,7 @@
 
 import hashlib
 import hmac
-import base64
+import sys
 
 
 PGP_WORDLIST = [
@@ -270,39 +270,38 @@ def encode_pgpwords(bytestring):
     Takes a bytestring or byte-generator and produces a generator of
     words according to the PGP wordlist.
     """
-    is_odd = False  # Zero bytes have been produced, and zero is even
+    is_odd = False  # The zeroth byte will be even
     for b in bytestring:
-        assert type(word) == int
+        assert type(b) == int
         assert 0 <= b < 256
-        is_odd = not is_odd  # Want to know odd-ness at new position
         yield PGP_WORDLIST[b * 2 + is_odd]
+        is_odd = not is_odd  # The next byte will have opposite odd-ness
 
 
 def biometric_mac(message, key):
     """
-    Takes a message and a key in UTF-8 encoding (see README why ASCII is still a good idea),
+    Takes a message and a key as bytes,
     and outputs a "biometric" MAC for it, as a generator of strings.
     Formally, it computes:  PGP_wordlist(HMAC_SHA1(key, message))
     """
-    key = bytes(key, 'UTF-8')
-    message = bytes(message, 'UTF-8')
-    
+    assert type(key) == bytes
+    assert type(message) == bytes
+
     signature_bin = hmac.new(key, message, hashlib.sha1).digest()
-    return str(signature2, 'UTF-8')
+    return encode_pgpwords(signature_bin)
 
 
 def run():
-    import sys
     if len(sys.argv) != 3:
         print('ERROR: You need to provide the two filenames.', file=sys.stderr)
-        print('Usage: {} <KEYFILE> <MESSAGEFILE>'.format(argv[0]), file=sys.stderr)
+        print('Usage: {} <KEYFILE> <MESSAGEFILE>'.format(sys.argv[0]), file=sys.stderr)
         print('Note that ay and all whitespace is significant.', file=sys.stderr)
         exit(1)
     with open(sys.argv[1], 'rb') as fp:
         key = fp.read()
     with open(sys.argv[2], 'rb') as fp:
         message = fp.read()
-    print('INFO: keylen={}, msglen={}'.format(len(key), len(msg)), file=sys.stderr)
+    print('INFO: keylen={}, msglen={}'.format(len(key), len(message)), file=sys.stderr)
     print(' '.join(biometric_mac(message, key)))
 
 
