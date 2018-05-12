@@ -15,13 +15,13 @@ because I haven't finished watching because I was
 
 ## Table of Contents
 
-- [Role Guide and Setup](#a)
-- [How to Use as Michael Britten](#b)
-- [How to Use as Dr. John Lee](#c)
-- [Design Criteria and Rationale](#h)
-- [TODOs](#e)
-- [Contribute](#f)
-- [License](#g)
+- [Role Guide and Setup](#role-guide-and-setup)
+- [How to Use as Michael Britten](#how-to-use-as-michael-britten)
+- [How to Use as Dr. John Lee](#how-to-use-as-dr-john-lee)
+- [Design Criteria and Rationale](#design-criteria-and-rationale)
+- [TODOs](#todos)
+- [Contribute](#todos)
+- [License](#license)
 
 ## Role Guide and Setup
 
@@ -44,7 +44,7 @@ This entire thing hinges on these things:
   This secret key must have stayed secret in both realities.
 - Dr. John Lee has no reason to distrust HMAC, i.e., there is no reason why
   Michael Britten should be able to forge a HMAC signature.
-- The car accident happened during or after the year 1997. See [Design Criteria and Rationale](#h).
+- The car accident happened during or after the year 1997. See [Design Criteria and Rationale](#design-criteria-and-rationale).
 
 These clearly hold in the series, and should also hold in most similar scenarios.
 
@@ -56,16 +56,16 @@ choose the message to be signed, so if Michael Britten is wrong/crazy/insane,
 nothing is lost.  In all cases, the secret stays secret.
 
 If the accident happend after May 2018, you're done: just point to the next section,
-[How to Use as Dr. John Lee](#c), and follow Dr. John Lee's instructions.
+[How to Use as Dr. John Lee](#how-to-use-as-dr-john-lee), and follow Dr. John Lee's instructions.
 The remainder of this section assumes that you can see this document only in one reality.
 
 As an extra step, to make sure that all the cryptographic processes stayed the same, tell him the following:
 
-    The `HMAC_SHA1` of the empty key and the empty message is some hard-to-remember letters-and-numbers-thing,
-    which starts with `fbdb1d`.  Because I can't easily remember lots of letters-and-numbers all the time,
-    I will use the PGP wordlist for that.  With it, the empty-key-empty-message-thing becomes
-    `watchword suspicious Belfast bravado beaming pedigree`.
-    Please first verify that the realities don't differ in this regard.
+> The `HMAC_SHA1` of the empty key and the empty message is some hard-to-remember letters-and-numbers-thing,
+> which starts with `fbdb1d`.  Because I can't easily remember lots of letters-and-numbers all the time,
+> I will use the PGP wordlist for that.  With it, the empty-key-empty-message-thing becomes
+> `watchword suspicious Belfast bravado beaming pedigree`.
+> Please first verify that the realities don't differ in this regard.
 
 This also helps Dr. John Lee in testing whether he is using all the tools correctly.
 
