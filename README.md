@@ -164,22 +164,27 @@ Now Michael Britten has to memorize so much more, but also can make a few more m
 
 ## Design Criteria and Rationale
 
-The less crypto-stuff I design, the better.  So obviously, I should go with existing building blocks.
+The less crypto-stuff I design,
+[the](https://security.stackexchange.com/questions/18197/why-shouldnt-we-roll-our-own?utm_medium=organic&utm_source=google_rich_qa&utm_campaign=google_rich_qa) [better](https://twitter.com/search?q=roll%20your%20own%20crypto&src=typd).
+ So obviously, I should go with existing building blocks.
 
-The main goal is authentication.  So any kind of Message Authentication Code is ideal,
+The main goal is authentication.  So any kind of
+[Message Authentication Code](https://en.wikipedia.org/wiki/Message_authentication_code) is ideal,
 because encryption solves the wrong problem (and does not imply authentication).
 
 Next, these building blocks absolutely *must* already exist before the accident,
 since we really can't afford the chance that they have been invented in slightly different ways,
-e.g. using the square roots of 2, 3, 5 and 7 instead of the square roots of 2, 3, 5 and 10.
+e.g. using the square roots of 2, 3, 5 and 7 instead of [the square roots of 2, 3, 5 and 10](https://en.wikipedia.org/wiki/SHA-1#SHA-1_pseudocode).
 Nobody can expect Michael Britten to find and explain
-all the differences between SHA-1-Hannah-died and SHA-1-Rex-died.
-I didn't have a specific number in mind, but I picked the oldest one
-that is still regarded secure, namely: `HMAC-SHA1`.
+all the differences between Keccak-Hannah-died and Keccak-Rex-died.
+I didn't have a specific year in mind, but I picked the oldest one
+that is still regarded secure, namely: [`HMAC-SHA1`](https://en.wikipedia.org/wiki/HMAC#Examples).
 This kinda excludes public key algorithms, as these are newer (and require more communcation).
 
-Note that this is largely unaffected by the SHAttering, as it required
-specially prepared messages and some nonces in the code-to-be-hashed.
+Note that this is largely unaffected by the SHAppening,
+[SHAttered](https://en.wikipedia.org/wiki/SHA-1#SHAttered_%E2%80%93_first_public_collision),
+or similar attacks, as it requires
+especially prepared messages and some nonces in the code-to-be-hashed.
 In order to achieve this here, the nonces are either the SHA1 of key and message each
 (more difficult than the original problem),
 or the message itself contains these, which would immediately be obvious to Dr. John Lee.
@@ -187,7 +192,7 @@ or the message itself contains these, which would immediately be obvious to Dr. 
 The signature needs to be transferred between realities.
 However, Micheal Britten can't be expected to flawlessly memorize a 160-bit hexadecimal string,
 even though 160-bit is technically rather short.
-I decided to use the PGP wordlist, because it also solves another problem in passing:
+I decided to use the [PGP wordlist](https://en.wikipedia.org/wiki/PGP_word_list), because it also solves another problem in passing:
 
 Error correction.  Michael Britten has to memorize at least 20 random English words worth of information,
 no matter what the encoding.  Errors will happen, both to the message and the signature.
