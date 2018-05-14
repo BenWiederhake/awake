@@ -295,7 +295,7 @@ def run():
     if len(sys.argv) != 3:
         print('ERROR: You need to provide the two filenames.', file=sys.stderr)
         print('Usage: {} <KEYFILE> <MESSAGEFILE>'.format(sys.argv[0]), file=sys.stderr)
-        print('Note that ay and all whitespace is significant.', file=sys.stderr)
+        print('Note that any and all whitespace is significant.', file=sys.stderr)
         exit(1)
     with open(sys.argv[1], 'rb') as fp:
         key = fp.read()
