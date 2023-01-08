@@ -1,16 +1,16 @@
 # awake
 
-> Helps you prove to a third party that you can communicate with another "instance" of them.
+This Proof-of-Concept algorithm helps you prove to a third party that you can communicate with another "instance" of that third party in a parallel universe. In theory.
 
 Assume you are [Michael Britten in the series "Awake"](https://www.imdb.com/title/tt1839683/?ref_=fn_al_tt_2),
 and you want to prove to someone (i.e., the IT guy), that you can communicate with a different version of that IT guy.
 
-Alternate realities already make everything hard, so I'll stick to this concrete example.
+Alternate realities make language difficult, so I'll stick to this running example.
 If you haven't seen the series yet, see the short guide that explains the roles
 in an objective fashion.
 
-This repository is spoiler-free (if you have seen episode 1),
-because I haven't finished watching because I was
+This repository is spoiler-free (if you have seen episode 1).
+At the time of writing, I haven't even finished watching because I was
 [nerd-sniped](https://xkcd.com/356/) and needed to write this. :-)
 
 ## Table of Contents
